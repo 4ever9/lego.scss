@@ -1,0 +1,24 @@
+{
+  "name": "mox",
+  "version": "1.0.0",
+  "description": "scss lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/4ever9/mox.git"
+  },
+  "keywords": [
+    "scss",
+    "lib",
+    "mixins"
+  ],
+  "author": "Aiden X",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/4ever9/mox/issues"
+  },
+  "homepage": "https://github.com/4ever9/mox#readme"
+}
