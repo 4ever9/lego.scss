@@ -1,1 +1,7 @@
-@import "grid";
+@import "all";
+
+$grid-options: (
+        column-number: 6
+);
+
+@include gen-grids($grid-options);

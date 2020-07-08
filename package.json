@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/4ever9/mox/issues"
   },
-  "homepage": "https://github.com/4ever9/mox#readme"
+  "homepage": "https://github.com/4ever9/mox#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-connect": "^5.7.0",
+    "gulp-sass": "^4.1.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
 }

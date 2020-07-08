@@ -1,0 +1,95 @@
+@import "media";
+
+@mixin gen-grids($options) {
+  $global: map_merge((
+          container-name: container,
+          row-name: row,
+          column-name: column,
+          grid-gap: 30px,
+          breakpoints: (md:768px, lg:992px, xl:1200px),
+          container-max-widths: (md: 720px, lg: 960px, xl: 1140px),
+          column-number: 12,
+          column-prefix: is,
+          other-percentage: (2:5, 3:5)
+  ), $options);
+
+  $container-name: map_get($global, container-name);
+  $row-name: map_get($global, row-name);
+  $column-name: map_get($global, column-name);
+  $grid-gap: map_get($global, grid-gap);
+  $breakpoints: map_get($global, breakpoints);
+  $container-max-widths: map_get($global, container-max-widths);
+  $column-number: map_get($global, column-number);
+  $column-prefix: map_get($global, column-prefix);
+  $other-percentage: map_get($global, other-percentage);
+
+  .#{$container-name} {
+    width: auto;
+    margin: 0 auto;
+    padding-left: $grid-gap / 2;
+    padding-right: $grid-gap / 2;
+  }
+
+  @each $breakpoint, $width in $breakpoints {
+    $max: map-get($container-max-widths, $breakpoint);
+    @include media-up($width) {
+      .#{$container-name} {
+        max-width: $max;
+      }
+    }
+  }
+
+  .#{$row-name} {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+    margin-left: ($grid-gap / -2);
+    margin-right: ($grid-gap / -2);
+  }
+
+  .#{$column-name} {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: .75rem;
+  }
+
+  @if $column-number > 0 {
+    @for $i from 1 through $column-number {
+      .#{$column-prefix}-#{$i} {
+        flex: 0 0 percentage($i / $column-number);
+        max-width: percentage($i / $column-number);
+      }
+    }
+
+    @each $breakpoint, $width in $breakpoints {
+      @include media-up($width) {
+        @for $i from 1 through $column-number {
+          .#{$column-prefix}-#{$breakpoint}-#{$i} {
+            flex: 0 0 percentage($i / $column-number);
+            max-width: percentage($i / $column-number);
+          }
+        }
+      }
+    }
+  }
+
+  @each $n, $d in $other-percentage {
+    .#{$column-prefix}-#{$n}-#{$d} {
+      flex: 0 0 percentage($n / $d);
+      max-width: percentage($n / $d);
+    }
+  }
+
+  @each $breakpoint, $width in $breakpoints {
+    @include media-up($width) {
+      @each $n, $d in $other-percentage {
+        .#{$column-prefix}-#{$n}-#{$d} {
+          flex: 0 0 percentage($n / $d);
+          max-width: percentage($n / $d);
+        }
+      }
+    }
+  }
+}
