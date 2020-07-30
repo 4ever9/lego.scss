@@ -11,7 +11,7 @@ function serve() {
     });
 }
 
-function compileMox() {
+function compileLego() {
     return src('./*.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         // .pipe(sass().on('error', sass.logError))
@@ -19,12 +19,12 @@ function compileMox() {
         .pipe(connect.reload());
 }
 
-exports.default = series(parallel(compileMox), function () {
-    watch('./*.scss', compileMox)
+exports.default = series(parallel(compileLego), function () {
+    watch('./*.scss', compileLego)
 })
 
-exports.dev = series(parallel(compileMox), parallel(serve, function () {
-    watch('./*.scss', compileMox)
+exports.dev = series(parallel(compileLego), parallel(serve, function () {
+    watch('./*.scss', compileLego)
     watch('./*.html', function () {
         return src('./*.html')
             .pipe(dest('./'))

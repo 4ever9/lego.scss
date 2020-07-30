@@ -1,0 +1,14 @@
+/**
+ * @param $line   line number.(default 1)
+ */
+@mixin text-truncate($line: 1) {
+  overflow: hidden;
+  @if $line == 1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}
