@@ -1,6 +1,6 @@
 {
-  "name": "mox",
-  "version": "1.0.0",
+  "name": "@forever9/lego",
+  "version": "0.1.0",
   "description": "scss lib",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/4ever9/mox.git"
+    "url": "git+ssh://git@github.com/4ever9/lego.git"
   },
   "keywords": [
     "scss",
@@ -18,9 +18,9 @@
   "author": "Aiden X",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/4ever9/mox/issues"
+    "url": "https://github.com/4ever9/lego/issues"
   },
-  "homepage": "https://github.com/4ever9/mox#readme",
+  "homepage": "https://github.com/4ever9/lego#readme",
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
