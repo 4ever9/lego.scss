@@ -3,6 +3,12 @@ const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 
+const resources = {
+    'scss': './*.scss',
+    'html': './*.html',
+    'dest': './dist',
+}
+
 function serve() {
     return connect.server({
         root: '.',
@@ -11,23 +17,21 @@ function serve() {
     });
 }
 
-function compileLego() {
-    return src('./*.scss')
+function compileScss() {
+    return src('demo.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        // .pipe(sass().on('error', sass.logError))
-        .pipe(dest('./dist'))
+        .pipe(dest(resources.dest))
         .pipe(connect.reload());
 }
 
-exports.default = series(parallel(compileLego), function () {
-    watch('./*.scss', compileLego)
+exports.default = series(compileScss, function () {
+    watch(resources.scss, compileScss)
 })
 
-exports.dev = series(parallel(compileLego), parallel(serve, function () {
-    watch('./*.scss', compileLego)
-    watch('./*.html', function () {
-        return src('./*.html')
-            .pipe(dest('./'))
+exports.dev = series(parallel(compileScss), parallel(serve, function () {
+    watch(resources.scss, compileScss)
+    watch(resources.html, function () {
+        return src(resources.html)
             .pipe(connect.reload());
     })
 }))

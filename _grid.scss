@@ -2,12 +2,13 @@
 
 $breakpoints: (md:768px, lg:992px, xl:1200px);
 $container-max-widths: (md: 720px, lg: 960px, xl: 1140px);
+$grid-gap: 30px;
 
 // Grid system container
 @mixin container($name: container,
   $breakpoints: $breakpoints,
   $container-max-widths: $container-max-widths,
-  $grid-gap: 30px) {
+  $grid-gap: $grid-gap) {
 
   .#{$name} {
     width: auto;
@@ -26,7 +27,7 @@ $container-max-widths: (md: 720px, lg: 960px, xl: 1140px);
   }
 }
 
-@mixin row($name: row, $grid-gap: 24px) {
+@mixin row($name: row, $grid-gap: $grid-gap) {
   .#{$name} {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +37,7 @@ $container-max-widths: (md: 720px, lg: 960px, xl: 1140px);
   }
 }
 
-@mixin column($name: column, $grid-gap: 24px) {
+@mixin column($name: column, $grid-gap: $grid-gap) {
   .#{$name} {
     display: block;
     flex-basis: 0;
@@ -47,7 +48,7 @@ $container-max-widths: (md: 720px, lg: 960px, xl: 1140px);
   }
 }
 
-@mixin gen-grids-with-ratio($prefix, $breakpoints, $ratios) {
+@mixin gen-grids-with-ratio($prefix: is, $breakpoints: $breakpoints, $ratios: ()) {
   @each $n, $d in $ratios {
     .#{$prefix}-#{$n}-#{$d} {
       flex: 0 0 percentage($n / $d);
@@ -67,7 +68,7 @@ $container-max-widths: (md: 720px, lg: 960px, xl: 1140px);
   }
 }
 
-@mixin gen-grids($prefix: is, $number: 12, $breakpoints: (md:768px, lg:992px, xl:1200px), $grid-gap: 24px) {
+@mixin gen-grids($prefix: is, $number: 12, $breakpoints: $breakpoints, $grid-gap: $grid-gap) {
   @if $number > 0 {
     @for $i from 1 through $number {
       .#{$prefix}-#{$i} {
