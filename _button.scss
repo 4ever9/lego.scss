@@ -12,11 +12,7 @@
   }
 
   &:active {
-    border-color: #686868;
-  }
-
-  &:focus {
-    border-color: #3273dc !important;
-    box-shadow: 0 0 0 2px #b5c6e0;
+    box-shadow: 0 0 0 2px #b3cefb;
+    border-color: #79a3ea;
   }
 }

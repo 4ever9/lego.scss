@@ -1,10 +1,10 @@
 @import "lego";
 
 // Grid
-@include container();
-@include row();
-@include column();
-@include gen-grids();
+@include container($grid-gap: 24px);
+@include row($grid-gap: 24px);
+@include column($grid-gap: 24px);
+@include gen-grids($grid-gap: 24px);
 @include gen-grids-with-ratio($ratios: (2:5));
 
 // Button
@@ -17,7 +17,6 @@ body {
     @include font-default();
 }
 
-
 // Customize
 .pane {
     margin: 30px 0;
@@ -29,11 +28,13 @@ body {
 }
 
 .box {
-    background: #00d1b2;
+    background: #00ced1;
     text-align: center;
     border-radius: 4px;
     padding: 20px;
     color: #fff;
+    margin: 12px 0;
+    font-size: 16px;
 }
 
 .gray-box {
