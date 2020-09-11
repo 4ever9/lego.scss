@@ -7,6 +7,9 @@
 @include gen-grids($grid-gap: 24px);
 @include gen-grids-with-ratio($ratios: (2:5));
 
+// Media Object
+@include media-object();
+
 // Button
 .btn {
     @include button();

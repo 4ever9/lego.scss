@@ -1,0 +1,24 @@
+
+@mixin media-object($gap: 15px) {
+.media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.media-left {
+    margin-right: $gap;
+}
+
+.media-right {
+    margin-left: $gap;;
+}
+.media-left, .media-right{
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.media-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+}
