@@ -1,6 +1,6 @@
 {
   "name": "@forever9/lego",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "scss lib",
   "main": "index.js",
   "scripts": {
