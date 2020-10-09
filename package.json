@@ -1,6 +1,6 @@
 {
   "name": "@forever9/lego",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "scss lib",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,8 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^4.1.0",
+    "layout.scss": "^0.1.0"
   },
   "devDependencies": {
     "node-sass": "^4.14.1"

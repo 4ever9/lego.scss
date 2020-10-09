@@ -1,46 +1,79 @@
 @import "lego";
+@import "layout";
 
 // Grid
-@include container($grid-gap: 24px);
-@include row($grid-gap: 24px);
-@include column($grid-gap: 24px);
-@include gen-grids($grid-gap: 24px);
-@include gen-grids-with-ratio($ratios: (2:5));
+.container {
+  @include container();
+}
+
+.row {
+  @include row($gap: 24px);
+}
+
+.column {
+  @include column($gap: 24px);
+}
+@include gen-grids($gap: 24px);
+@include gen-grids-with-ratio(
+  $ratios: (
+    2: 5,
+  )
+);
 
 // Media Object
 @include media-object();
 
 // Button
 .btn {
-    @include button();
+  @include button();
 }
 
 // Font
 body {
-    @include font-default();
+  @include font-default();
 }
 
 // Customize
 .pane {
-    margin: 30px 0;
+  margin: 30px 0;
 
-    h2 {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.block {
+  margin-bottom: 20px;
 }
 
 .box {
-    background: #00ced1;
-    text-align: center;
-    border-radius: 4px;
-    padding: 20px;
-    color: #fff;
-    margin: 12px 0;
-    font-size: 16px;
+  background: #00ced1;
+  text-align: center;
+  border-radius: 4px;
+  padding: 20px;
+  color: #fff;
+  margin: 12px 0;
+  font-size: 16px;
 }
 
 .gray-box {
-    background: #e0e0e0;
-    color: #222;
+  background: #e0e0e0;
+  color: #222;
+}
+
+.input {
+  @include input;
+}
+
+.input-pure {
+  @include input("pure");
+}
+
+.textarea {
+  @include textarea;
+}
+
+.textarea-pure {
+  @include textarea("pure");
 }
