@@ -1,6 +1,17 @@
 @import "lego";
 @import "layout";
 
+.spinner {
+  height: 100px;
+  text-align: center;
+  .column {
+    height: 80px;
+  }
+}
+.loader {
+  @include spinner();
+}
+
 // Grid
 .container {
   @include container();

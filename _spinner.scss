@@ -1,0 +1,48 @@
+@mixin spinner($color: #eaeaea, $width: 6px, $height: 12px, $delay: 1s) {
+  color: $color;
+  text-indent: -9999em;
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+  animation-delay: -0.16s !important;
+  display: inline-block;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    content: "";
+  }
+
+  &:before {
+    left: -$width * 1.5;
+    animation-delay: -0.32s !important;
+  }
+
+  &:after {
+    left: $width * 1.5;
+  }
+
+  &,
+  &:before,
+  &:after {
+    background: $color;
+    animation: load-frames $delay infinite ease-in-out;
+    width: $width;
+    height: $height;
+  }
+
+  @keyframes load-frames {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 1 * $height;
+    }
+
+    40% {
+      box-shadow: 0 -1.2 * $height;
+      height: 1.4 * $height;
+    }
+  }
+}
