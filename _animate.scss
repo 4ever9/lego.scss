@@ -1,0 +1,30 @@
+@mixin menubar($width: 18px, $color: #000) {
+  cursor: pointer;
+
+  span {
+    display: block;
+    height: 1px;
+    width: $width;
+    background: $color;
+    transform-origin: 21px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+      -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  span:not(:last-child) {
+    margin-bottom: ($width - 3) / 2;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(-45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: rotate(45deg);
+    }
+  }
+}

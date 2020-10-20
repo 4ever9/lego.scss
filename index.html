@@ -13,6 +13,16 @@
   <body>
     <div class="container">
       <div class="pane">
+        <h2>Animate</h2>
+        <div class="animate">
+          <div class="menubar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="pane">
         <h2>Spinner</h2>
         <div class="spinner">
           <div class="row">
@@ -131,4 +141,12 @@
       </div>
     </div>
   </body>
+  <script>
+    const $menubars = document.querySelectorAll(".menubar")
+    for (let i = 0; i < $menubars.length; i++) {
+      $menubars[i].addEventListener("click", () => {
+        $menubars[i].classList.toggle("active")
+      })
+    }
+  </script>
 </html>
